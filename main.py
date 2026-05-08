@@ -62,6 +62,7 @@ df_4_oldest = pd.read_sql("""SELECT name, age, breed FROM dogs ORDER BY age DESC
 # Create a connection
 # Note the connect is 'conn3' since they will be multiple .db used
 conn3 = sqlite3.connect('babe_ruth.db')
+# CREATE TABLE babe_ruth_stats (id INTEGER PRIMARY KEY, year INTEGER, team TEXT, league TEXT, doubles INTEGER, triples INTEGER, hits INTEGER, HR INTEGER, games INTEGER, runs INTEGER, RBI INTEGER, at_bats INTEGER, BB INTEGER, SB INTEGER, SO INTEGER, AVG REAL
 
 # Select all
 pd.read_sql("""
@@ -81,7 +82,7 @@ df_teams_years = pd.read_sql("""SELECT team, COUNT(*) AS number_years FROM babe_
 
 # CodeGrade step12
 # Replace None with your code
-df_at_bats = pd.read_sql("""SELECT team, AVG(AB) AS average_at_bats FROM babe_ruth_stats GROUP BY team HAVING AVG(AB) > 200;""", conn3)
+df_at_bats = pd.read_sql("""SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team HAVING AVG(AB) > 200;""", conn3)
 
 # Run this cell without changes
 
